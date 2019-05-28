@@ -1,6 +1,6 @@
 {% extends "task/base.html" %}
 {% block content %}
-    {% for task in tasks %}
+    {% for task in task_list %}
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ task.author.profile.image.url }}">
           <div class="media-body">
@@ -8,10 +8,11 @@
 
 
               <a class="mr-2" href="#">{{ task.author }}</a>
-              <small class="text-muted">{{ task.date_posted|date:"F d, Y" }}</small>
+              <small class="text-muted">{{ task.date_posted }}</small>
             </div>
-            <h2><a class="article-title" href="{% url 'task-detail' task.id %}">{{ task.title }}</a></h2>
+            <h2><a class="article-title" href="{% url 'task_detail' pk=task.pk %}">{{ task.title }}</a></h2>
             <p class="article-content">{{ task.status }}</p>
+              <a href="{% url 'task_detail' pk=task.pk  %}">Comments: {{ task.approve_comments.count }}</a>
           </div>
         </article>
 
