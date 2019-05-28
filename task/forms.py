@@ -12,9 +12,26 @@ class TaskForm(forms.ModelForm):
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'textinputclass'}),
+            'completion_date':forms.DateInput()
 
 
         }
+
+
+
+class UpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = Task
+        fields = ('status','completion_date', )
+
+        widgets = {
+
+            'completion_date':forms.DateInput()
+
+
+        }
+
 
 
 class CommentForm(forms.ModelForm):

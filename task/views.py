@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect,HttpResponse
 
-from .forms import TaskForm,CommentForm
+from .forms import TaskForm,CommentForm,UpdateForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
@@ -49,7 +49,7 @@ class TaskUpdateView(LoginRequiredMixin,UpdateView):
     login_url = '/login/'
     redirect_field_name = 'task/task_detail.html'
 
-    form_class = TaskForm
+    form_class = UpdateForm
 
     model = Task
 
