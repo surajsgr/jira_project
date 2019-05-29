@@ -21,9 +21,11 @@ class TaskForm(forms.ModelForm):
 
 class UpdateForm(forms.ModelForm):
 
+    title=forms.CharField(disabled=True)
+
     class Meta:
         model = Task
-        fields = ('status','completion_date', )
+        fields = ('title','status','completion_date', )
 
         widgets = {
 
