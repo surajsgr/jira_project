@@ -13,7 +13,7 @@
             <h2><a class="article-title" href="{% url 'task_detail' pk=task.pk %}">{{ task.title }}</a></h2>
             <p class="article-content">{{ task.status }}</p>
               <a href="{% url 'task_detail' pk=task.pk  %}">Comments: {{ task.approve_comments.count }}</a>
-              <p>Completion date : {{ task.completion_date }}</p>
+              <p>Completion date : {{ task.completion_date | date:"F d, Y" }}</p>
           </div>
         </article>
 
